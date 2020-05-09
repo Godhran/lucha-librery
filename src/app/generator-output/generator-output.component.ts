@@ -3,8 +3,8 @@ import rough from 'roughjs/bin/rough';
 import generatePoster from '../generate-poster';
 import logo from '../logo';
 import Palette from '../palettes';
-import Figure from '../Figures';
-import Mask from '../Masks';
+import Figure from '../figures';
+import Mask from '../masks';
 import Name from '../names';
 
 @Component({
