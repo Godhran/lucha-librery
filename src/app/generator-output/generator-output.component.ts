@@ -15,8 +15,8 @@ import Name from '../names';
 export class GeneratorOutputComponent implements OnInit {
 
   canvas = document.getElementById('poster');
-  genFirstName:string=null;
-  genSurname:string=null;
+  genFirstName:string="";
+  genSurname:string="";
   windowWidth=window.innerWidth*0.75;
   constructor() { }
   // svg:SVGSVGElement;
@@ -256,7 +256,7 @@ export class GeneratorOutputComponent implements OnInit {
       //   const data = result.data[0];
       // }
       console.log(this.genSurname+" "+this.genFirstName)
-      if(this.genFirstName!=null && this.genSurname!=null){
+      if(this.genFirstName.length>0 && this.genSurname.length>0){
         stringA = line1Array[Math.floor(Math.random() * line1Array.length)];
         stringB = `${this.genFirstName.toLocaleLowerCase()} ${this.genSurname.toLocaleLowerCase()}`;
       }
