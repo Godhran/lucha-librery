@@ -14,4 +14,4 @@ res.sendFile(path.join(__dirname+`/dist/${appName}/index.html`));
 
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
-console.log("Server running 8080");
+console.log(`Server running ${process.env.PORT || 8080}`);

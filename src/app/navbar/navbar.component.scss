@@ -1,4 +1,22 @@
 .navbar-brand{
     font-family: Wood Stamp;
-    font-size:2em;
+    font-size:2.5em;
+    color:#feaf38;
+}
+
+.navbar-brand:hover{
+    color:#ca3038;
+}
+
+.nav-link{
+    color: #feaf38 !important;
+    font-weight: bolder;
+}
+
+.nav-link:hover{
+    color: #ca3038 !important;
+}
+
+.navbar{
+    background-color: #1e1832;
 }

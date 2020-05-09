@@ -11,9 +11,9 @@ import { GeneratorOutputComponent } from './generator-output/generator-output.co
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent,
     GeneratorSettingsComponent,
-    GeneratorOutputComponent
+    GeneratorOutputComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule

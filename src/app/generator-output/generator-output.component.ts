@@ -55,6 +55,11 @@ export class GeneratorOutputComponent implements OnInit {
 
     let fontChecker = document.getElementsByClassName("navbar-brand");
     let fontCTX = getComputedStyle(fontChecker[0]).getPropertyValue('font-family');
+
+    let posterContainer=document.getElementById("poster-container");
+
+    console.log(document.getElementById("poster-container").offsetHeight);
+    console.log(document.getElementById("poster-container").offsetWidth);
     console.log("MIMI");
     console.log(mask.Small);
     console.log(mask.Small.find(fig => fig.Figure === figure.Name));
@@ -138,6 +143,24 @@ export class GeneratorOutputComponent implements OnInit {
       // ctx.drawImage(textureImage, 0, 0, textureImage.width, textureImage.height);
       // ctx.drawImage(textureImage,0,0);
       // textureImage.src = "/assets/img/Texture.png";
+      
+
+      // let posterHeight=;
+      let posterDimensions={width:600,height:900};
+      if((window.innerWidth*0.55)<600){
+          posterDimensions.width=window.innerWidth*0.55;
+      }
+      // if((window.innerHeight/2)<900){
+      //     posterDimensions.height=window.height/2;
+      // }
+      let posterWidth=posterContainer.offsetWidth;
+      // console.log(window.innerWidth);
+
+      posterWidth;
+      poster.style.width=`${posterDimensions.width}px`;
+
+    // posterContainer.style.width=`${10}px`;
+    // posterContainer.style.height=`1000px`;
       console.log(posterElement);
     });
     // logo.forEach(logoElement => {
