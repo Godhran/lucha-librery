@@ -12,6 +12,16 @@
 </svg> -->
 <!-- <span id="load-font">Text</span>
 <canvas id="poster" width="600" height="900"></canvas> -->
+<div class="settings-container">
+    <form method="post">
+        <h2 class="text-center">Don the <strong>mask</strong></h2>
+        <div class="form-group"><input (change)="updateFirstName($event)" type="text" class="form-control" minlength="2" name="forename"
+                placeholder="First Name" required /></div>
+        <div class="form-group"><input (change)="updateSurname($event)" type="text" class="form-control" minlength="2" name="surname"
+                placeholder="Surname" required/></div>
+        <div class="form-group"><button (click)="startGenerator()" class="btn btn-primary btn-block" type="button">Suit Up</button></div>
+    </form>
+</div>
 
 <div class="register-photo">
 	<div class="form-container" id="poster-container">
