@@ -28,6 +28,12 @@
     padding-top: 1em;
   }
 
+.settings-container h2{
+    font-family: Wood Stamp;
+    font-weight: lighter;
+    font-size:3.5em;
+}
+
   .btn-primary {
     font-weight: bold;
     color: #fff;
@@ -57,6 +63,7 @@
 .register-photo {
     padding: 80px 0;
     background-color: #ffe598;
+    min-height:45vh;
   }
   
 // canvas {
