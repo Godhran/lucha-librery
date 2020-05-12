@@ -17,7 +17,6 @@ export class GeneratorOutputComponent implements OnInit {
   canvas = document.getElementById('poster');
   genFirstName:string="";
   genSurname:string="";
-  windowWidth=window.innerWidth*0.75;
   constructor() { }
   // svg:SVGSVGElement;
   // rc = rough.svg(this.svg);
@@ -187,6 +186,16 @@ export class GeneratorOutputComponent implements OnInit {
   }
 
   startGenerator(){
+    let windowWidth=window.innerWidth*0.75;
+    let poster = document.getElementById('poster');
+    let posterElement = poster as HTMLCanvasElement;
+    let rc = rough.canvas(posterElement);
+    var ctx = posterElement.getContext("2d");
+    
+    ctx.clearRect(0, 0, posterElement.width, posterElement.height);
+    let loadingDiv = document.getElementById('loading-div');
+    console.log(loadingDiv);
+    loadingDiv.classList.add('loading-animation');
     console.log(this.genFirstName + " " + this.genSurname);
 
     console.log(logo);
@@ -201,10 +210,6 @@ export class GeneratorOutputComponent implements OnInit {
 
 
     // console.log(textureImage);
-    let poster = document.getElementById('poster');
-    let posterElement = poster as HTMLCanvasElement;
-    let rc = rough.canvas(posterElement);
-    var ctx = posterElement.getContext("2d");
 
     let fontChecker = document.getElementsByClassName("navbar-brand");
     let fontCTX = getComputedStyle(fontChecker[0]).getPropertyValue('font-family');
@@ -263,7 +268,7 @@ export class GeneratorOutputComponent implements OnInit {
       console.log("OUTPUT");
       console.log(stringB);
       console.log(stringA+" "+stringB);
-
+      loadingDiv.style.display="none";
       generatePoster(rc, palette, figure.Paths, mask.Large, mask.Small.find(fig => fig.Figure === figure.Name).Paths);
 
       ctx.font = `200px ${fontCTX}`;
@@ -308,8 +313,8 @@ export class GeneratorOutputComponent implements OnInit {
 
       // let posterHeight=;
       let posterDimensions={width:600,height:900};
-      if(this.windowWidth<600){
-          posterDimensions.width=this.windowWidth;
+      if(windowWidth<600){
+          posterDimensions.width=windowWidth;
       }
       // if((window.innerHeight/2)<900){
       //     posterDimensions.height=window.height/2;

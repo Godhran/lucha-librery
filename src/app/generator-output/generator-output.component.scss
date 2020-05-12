@@ -19,6 +19,22 @@
     color:#1e1832;
 }
 
+.loading-animation{
+    animation-name: loadingMask;
+    animation-duration: 3s;
+}
+
+@keyframes loadingMask {
+    0% {
+        transform: rotate(0deg);
+        scale:(1,1);
+    }
+    100% {
+        transform: rotate(360deg);
+        scale:(0,0);
+    }
+}
+
 .settings-container {
     display: table;
     max-width: 900px;
@@ -35,7 +51,9 @@
 }
 
   .btn-primary {
-    font-weight: bold;
+    font-family: Wood Stamp;
+    font-weight: lighter;
+    font-size: 3em;
     color: #fff;
     background-color: #de6a37;
     border-color: #ca3038; /*set the color you want here*/
