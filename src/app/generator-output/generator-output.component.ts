@@ -187,10 +187,13 @@ export class GeneratorOutputComponent implements OnInit {
 
   startGenerator(){
     let windowWidth=window.innerWidth*0.75;
+    let settingsButton = <HTMLInputElement> document.getElementById('generate-button');
     let poster = document.getElementById('poster');
     let posterElement = poster as HTMLCanvasElement;
     let rc = rough.canvas(posterElement);
     var ctx = posterElement.getContext("2d");
+    settingsButton.disabled=true;
+    settingsButton.innerHTML="Processing...";
     
     ctx.clearRect(0, 0, posterElement.width, posterElement.height);
     let loadingDiv = document.getElementById('loading-div');
@@ -324,6 +327,8 @@ export class GeneratorOutputComponent implements OnInit {
 
       posterWidth;
       poster.style.width=`${posterDimensions.width}px`;
+      settingsButton.disabled=false;
+      settingsButton.innerHTML="Suit up";
 
     // posterContainer.style.width=`${10}px`;
     // posterContainer.style.height=`1000px`;
