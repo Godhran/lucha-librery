@@ -15,8 +15,8 @@ import Name from '../names';
 export class GeneratorOutputComponent implements OnInit {
 
   canvas = document.getElementById('poster');
-  genFirstName:string="";
-  genSurname:string="";
+  genFirstName: string = "";
+  genSurname: string = "";
   constructor() { }
   // svg:SVGSVGElement;
   // rc = rough.svg(this.svg);
@@ -29,26 +29,26 @@ export class GeneratorOutputComponent implements OnInit {
   //   //   fill: "rgb(10,150,10)",
   //   //   fillWeight: 3 // thicker lines for hachure
   //   // });
-  //   console.log("RC");
-  //   console.log(rc);
-  //   console.log(this.svg);
-  //   // console.log(this.divView);
+  //   //console.log("RC");
+  //   //console.log(rc);
+  //   //console.log(this.svg);
+  //   // //console.log(this.divView);
   //   // this.divView.nativeElement.innerHTML = this.rc;
 
   // }
   ngOnInit() {
-    // console.log(logo);
+    // //console.log(logo);
 
     // let palette = Palette[Math.floor(Math.random() * Palette.length)];
     // let figure = Figure[Math.floor(Math.random() * Figure.length)];
     // let mask = Mask[Math.floor(Math.random() * Mask.length)];
 
-    // console.log(palette);
-    // console.log(figure);
-    // console.log(mask);
+    // //console.log(palette);
+    // //console.log(figure);
+    // //console.log(mask);
 
 
-    // // console.log(textureImage);
+    // // //console.log(textureImage);
     // let poster = document.getElementById('poster');
     // let posterElement = poster as HTMLCanvasElement;
     // let rc = rough.canvas(posterElement);
@@ -59,17 +59,17 @@ export class GeneratorOutputComponent implements OnInit {
 
     // let posterContainer=document.getElementById("poster-container");
 
-    // console.log(document.getElementById("poster-container").offsetHeight);
-    // console.log(document.getElementById("poster-container").offsetWidth);
-    // console.log("MIMI");
-    // console.log(mask.Small);
-    // console.log(mask.Small.find(fig => fig.Figure === figure.Name));
-    // console.log(mask.Small.find(fig => fig.Figure === figure.Name).Figure);
+    // //console.log(document.getElementById("poster-container").offsetHeight);
+    // //console.log(document.getElementById("poster-container").offsetWidth);
+    // //console.log("MIMI");
+    // //console.log(mask.Small);
+    // //console.log(mask.Small.find(fig => fig.Figure === figure.Name));
+    // //console.log(mask.Small.find(fig => fig.Figure === figure.Name).Figure);
 
     // this.delay(3000).then(any => {
-    //   console.log(fontCTX);
+    //   //console.log(fontCTX);
     //   // let fontChecker = document.getElementById('load-font');
-    //   // console.log(fontChecker.style.display);
+    //   // //console.log(fontChecker.style.display);
 
     //   if ((Math.floor(Math.random() * 2) == 0)) {
     //     let temp = palette.light;
@@ -138,13 +138,13 @@ export class GeneratorOutputComponent implements OnInit {
 
 
     //     ctx.drawImage(textureImage, 0, 0);
-    //     console.log('the image is drawn');
+    //     //console.log('the image is drawn');
     //   }
     //   textureImage.src = `/assets/img/${palette.light.replace('#', '')}.png`;
     //   // ctx.drawImage(textureImage, 0, 0, textureImage.width, textureImage.height);
     //   // ctx.drawImage(textureImage,0,0);
     //   // textureImage.src = "/assets/img/Texture.png";
-      
+
 
     //   // let posterHeight=;
     //   let posterDimensions={width:600,height:900};
@@ -155,14 +155,14 @@ export class GeneratorOutputComponent implements OnInit {
     //   //     posterDimensions.height=window.height/2;
     //   // }
     //   let posterWidth=posterContainer.offsetWidth;
-    //   // console.log(window.innerWidth);
+    //   // //console.log(window.innerWidth);
 
     //   posterWidth;
     //   poster.style.width=`${posterDimensions.width}px`;
 
     // // posterContainer.style.width=`${10}px`;
     // // posterContainer.style.height=`1000px`;
-    //   console.log(posterElement);
+    //   //console.log(posterElement);
     // });
     // logo.forEach(logoElement => {
     //   if (logoElement.visible) {
@@ -185,53 +185,70 @@ export class GeneratorOutputComponent implements OnInit {
     // }
   }
 
-  startGenerator(){
-    let windowWidth=window.innerWidth*0.75;
-    let settingsButton = <HTMLInputElement> document.getElementById('generate-button');
+  startGenerator() {
+    let windowWidth = window.innerWidth * 0.75;
+    // this.nameToNumber();
+    let settingsButton = <HTMLInputElement>document.getElementById('generate-button');
     let poster = document.getElementById('poster');
     let posterElement = poster as HTMLCanvasElement;
     let rc = rough.canvas(posterElement);
     var ctx = posterElement.getContext("2d");
-    settingsButton.disabled=true;
-    settingsButton.innerHTML="Processing...";
-    
+    settingsButton.disabled = true;
+    settingsButton.innerHTML = "Processing...";
+
     ctx.clearRect(0, 0, posterElement.width, posterElement.height);
     let loadingDiv = document.getElementById('loading-div');
-    console.log(loadingDiv);
+    //console.log(loadingDiv);
     loadingDiv.classList.add('loading-animation');
-    console.log(this.genFirstName + " " + this.genSurname);
+    //console.log(this.genFirstName + " " + this.genSurname);
 
-    console.log(logo);
+    //console.log(logo);
 
-    let palette = Palette[Math.floor(Math.random() * Palette.length)];
-    let figure = Figure[Math.floor(Math.random() * Figure.length)];
-    let mask = Mask[Math.floor(Math.random() * Mask.length)];
+    
+    let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    let name = this.genFirstName + this.genSurname;
+    name = name.replace(/[^A-Za-z]/g, "");
+    let nameArray = name.split("");
+    let nameNumberValue = 0;
+    nameArray.forEach(letter => {
+      let letterPosition = alphabet.indexOf(letter) + 1;
+      nameNumberValue += letterPosition;
+    });
 
-    console.log(palette);
-    console.log(figure);
-    console.log(mask);
+    let palette = Palette[nameNumberValue%Palette.length];
+    let figure = Figure[nameNumberValue%Figure.length];
+    let mask = Mask[nameNumberValue%Mask.length];
+
+    // let palette = Palette[Math.floor(Math.random() * Palette.length)];
+    // let figure = Figure[Math.floor(Math.random() * Figure.length)];
+    // let mask = Mask[Math.floor(Math.random() * Mask.length)];
+
+    //console.log(palette);
+    //console.log(figure);
+    //console.log(mask);
 
 
-    // console.log(textureImage);
+    // //console.log(textureImage);
 
     let fontChecker = document.getElementsByClassName("navbar-brand");
     let fontCTX = getComputedStyle(fontChecker[0]).getPropertyValue('font-family');
 
-    let posterContainer=document.getElementById("poster-container");
+    let posterContainer = document.getElementById("poster-container");
 
-    console.log(document.getElementById("poster-container").offsetHeight);
-    console.log(document.getElementById("poster-container").offsetWidth);
-    console.log("MIMI");
-    console.log(mask.Small);
-    console.log(mask.Small.find(fig => fig.Figure === figure.Name));
-    console.log(mask.Small.find(fig => fig.Figure === figure.Name).Figure);
+    //console.log(document.getElementById("poster-container").offsetHeight);
+    //console.log(document.getElementById("poster-container").offsetWidth);
+    //console.log("MIMI");
+    //console.log(mask.Small);
+    //console.log(mask.Small.find(fig => fig.Figure === figure.Name));
+    //console.log(mask.Small.find(fig => fig.Figure === figure.Name).Figure);
 
     this.delay(3000).then(any => {
-      console.log(fontCTX);
+      //console.log(fontCTX);
       // let fontChecker = document.getElementById('load-font');
-      // console.log(fontChecker.style.display);
+      // //console.log(fontChecker.style.display);
 
-      if ((Math.floor(Math.random() * 2) == 0)) {
+      // if ((Math.floor(Math.random() * 2) == 0)) {
+        if ((nameNumberValue%2 == 0)) {
         let temp = palette.light;
         palette.light = palette.dark;
         palette.dark = temp;
@@ -246,14 +263,35 @@ export class GeneratorOutputComponent implements OnInit {
 
 
 
-      if ((Math.floor(Math.random() * 2) == 0)) {
+      // if ((Math.floor(Math.random() * 2) == 0)) {
+      //   stringA = "the";
+      // } else {
+      //   stringA = line1Array[Math.floor(Math.random() * line1Array.length)];
+      // }
+
+
+      // let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+      // let name = this.genFirstName + this.genSurname;
+      // name = name.replace(/[^A-Za-z]/g, "");
+      // let nameArray = name.split("");
+      // let nameNumberValue = 0;
+      // nameArray.forEach(letter => {
+      //   let letterPosition = alphabet.indexOf(letter) + 1;
+      //   nameNumberValue += letterPosition;
+      // });
+
+      // //console.log((nameNumberValue % Name.namesEnglish.length) % 2);
+      if (((nameNumberValue % Name.namesEnglish.length) % 2 == 0)) {
         stringA = "the";
       } else {
-        stringA = line1Array[Math.floor(Math.random() * line1Array.length)];
+        if ((nameNumberValue % Name.namesEnglish.length) % 2 >= Name.namesEnglish.length) {
+          stringA = line1Array[0];
+        } else {
+          stringA = line1Array[1];
+        }
       }
 
-
-      stringB = Name.generateName(palette.name,stringA);
+      stringB = Name.generateName(palette.name, stringA, nameNumberValue);
       // stringB+=" Christ";
 
       // if ((Math.floor(Math.random() * 2) == 0)) {
@@ -263,15 +301,19 @@ export class GeneratorOutputComponent implements OnInit {
       //   });
       //   const data = result.data[0];
       // }
-      console.log(this.genSurname+" "+this.genFirstName)
-      if(this.genFirstName.length>0 && this.genSurname.length>0){
-        stringA = line1Array[Math.floor(Math.random() * line1Array.length)];
-        stringB = `${this.genFirstName.toLocaleLowerCase()} ${this.genSurname.toLocaleLowerCase()}`;
-      }
-      console.log("OUTPUT");
+        // //console.log(this.genSurname + " " + this.genFirstName)
+        // if (this.genFirstName.length > 0 && this.genSurname.length > 0) {
+        //   stringA = line1Array[Math.floor(Math.random() * line1Array.length)];
+        //   stringB = `${this.genFirstName.toLocaleLowerCase()} ${this.genSurname.toLocaleLowerCase()}`;
+        // }
+      //console.log("OUTPUT");
+      //console.log(stringB);
+      //console.log(stringA + " " + stringB);
+      loadingDiv.style.display = "none";
       console.log(stringB);
-      console.log(stringA+" "+stringB);
-      loadingDiv.style.display="none";
+      if(stringB==="red undefined"){
+        stringB="smart ass";
+      }
       generatePoster(rc, palette, figure.Paths, mask.Large, mask.Small.find(fig => fig.Figure === figure.Name).Paths);
 
       ctx.font = `200px ${fontCTX}`;
@@ -306,48 +348,86 @@ export class GeneratorOutputComponent implements OnInit {
 
 
         ctx.drawImage(textureImage, 0, 0);
-        console.log('the image is drawn');
+        //console.log('the image is drawn');
       }
       textureImage.src = `/assets/img/${palette.light.replace('#', '')}.png`;
       // ctx.drawImage(textureImage, 0, 0, textureImage.width, textureImage.height);
       // ctx.drawImage(textureImage,0,0);
       // textureImage.src = "/assets/img/Texture.png";
-      
+
 
       // let posterHeight=;
-      let posterDimensions={width:600,height:900};
-      if(windowWidth<600){
-          posterDimensions.width=windowWidth;
+      let posterDimensions = { width: 600, height: 900 };
+      if (windowWidth < 600) {
+        posterDimensions.width = windowWidth;
       }
       // if((window.innerHeight/2)<900){
       //     posterDimensions.height=window.height/2;
       // }
-      let posterWidth=posterContainer.offsetWidth;
-      // console.log(window.innerWidth);
+      let posterWidth = posterContainer.offsetWidth;
+      // //console.log(window.innerWidth);
 
       posterWidth;
-      poster.style.width=`${posterDimensions.width}px`;
-      settingsButton.disabled=false;
-      settingsButton.innerHTML="Suit up";
+      poster.style.width = `${posterDimensions.width}px`;
+      settingsButton.disabled = false;
+      settingsButton.innerHTML = "Suit up";
 
-    // posterContainer.style.width=`${10}px`;
-    // posterContainer.style.height=`1000px`;
-      console.log(posterElement);
+      // posterContainer.style.width=`${10}px`;
+      // posterContainer.style.height=`1000px`;
+      //console.log(posterElement);
     });
   }
 
-  updateFirstName(event){
-    this.genFirstName=event.target.value;
-    // console.log(event.target.value)
+  updateFirstName(event) {
+    this.genFirstName = this.sanitize(event.target.value);
+    //console.log(this.genFirstName);
+    // //console.log(event.target.value)
   }
 
-  updateSurname(event){
-    this.genSurname=event.target.value;
-    // console.log(event.target.value)
+  updateSurname(event) {
+    this.genSurname = this.sanitize(event.target.value);
+    //console.log(this.genSurname);
+    // //console.log(event.target.value)
+  }
+
+  nameToNumber() {
+    let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    let name = this.genFirstName + this.genSurname;
+    name = name.replace(/[^A-Za-z]/g, "");
+    //console.log(name);
+    let nameArray = name.split("");
+    let nameNumberValue = 0;
+    nameArray.forEach(letter => {
+      let letterPosition = alphabet.indexOf(letter) + 1;
+      nameNumberValue += letterPosition;
+    });
+    //console.log(nameNumberValue);
+    //console.log(Name.namesEnglish.length);
+    //console.log(nameNumberValue % Name.namesEnglish.length);
+    //console.log(Name.namesEnglish[(nameNumberValue % Name.namesEnglish.length) - 1]);
+    //console.log(Name.namesEnglish[Name.namesEnglish.length]);
+  }
+
+  sanitize(stringToSanitize) {
+    if (stringToSanitize !== undefined) {
+      const map = {
+        '&': '',
+        '<': '',
+        '>': '',
+        '"': '',
+        "'": '',
+        "/": '',
+      };
+      const reg = /[&<>"'/]/ig;
+      return stringToSanitize.replace(reg, (match) => (map[match]));
+    } else {
+      return undefined;
+    }
   }
 
   async delay(ms: number) {
-    await new Promise(resolve => setTimeout(() => resolve(), ms)).then(() => console.log("fired"));
+    // await new Promise(resolve => setTimeout(() => resolve(), ms)).then(() => console.log("fired"));
+    await new Promise(resolve => setTimeout(() => resolve(), ms)).then(() => console.log());
   }
 
 }

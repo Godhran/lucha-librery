@@ -32,10 +32,14 @@ class Names {
         "Sultan",
         "Aztec",
         "Warrior",
-        "Brawler"
+        "Brawler",
+        "Hunter",
+        "Tornado",
+        "Tsunami",
+        "Panther"
     ];
 
-    generateName(palette,firstWord) {
+    generateName(palette,firstWord,nameValue) {
         let nameString = '';
         if(firstWord!=="the"){
             nameString+="the ";
@@ -44,7 +48,8 @@ class Names {
             return entry.colour === palette;
         })[0].names;
        
-        nameString+=`${potentialNames[Math.floor(Math.random() * potentialNames.length)]} ${this.namesEnglish[Math.floor(Math.random() * this.namesEnglish.length)]}`;
+        // nameString+=`${potentialNames[Math.floor(Math.random() * potentialNames.length)]} ${this.namesEnglish[Math.floor(Math.random() * this.namesEnglish.length)]}`;
+        nameString+=`${potentialNames[nameValue%potentialNames.length]} ${this.namesEnglish[(nameValue%this.namesEnglish.length) - 1]}`;
     
         // console.log(palette);
         // console.log(potentialNames);
