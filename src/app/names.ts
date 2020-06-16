@@ -1,6 +1,6 @@
 class Names {
     namesByColours = [
-        { colour: "red", names: ["red", "scarlet", "bloody", "cardinal", "raging", "ruby", "cerise", "foxy"] },
+        { colour: "red", names: ["red", "scarlet", "bloody", "cardinal", "raging", "ruby", "cherry", "foxy"] },
         { colour: "green", names: ["green", "envious", "verdant", "natural", "vegan", "sage","acid"] },
         { colour: "blue", names: ["blue", "lapis", "sorrowful", "azure", "seasick","royal","cobalt","bawdy"] },
         { colour: "pink", names: ["pink", "flushed", "rose", "blushing", "proud", "fine", "blooming"] },
