@@ -336,21 +336,13 @@ export class GeneratorOutputComponent implements OnInit {
       ctx.fillStyle = palette.dark;
       ctx.fillText(stringB, 50, 875, 500);
 
-      let textureImage = new Image();
-      textureImage.onload = function () {
-        // ctx.fillStyle = "#09f";
-        // ctx.fillRect(0, 0, posterElement.width, posterElement.height);
-
-        // // set composite mode
-        // ctx.globalCompositeOperation = "destination-in";
-
-        // // draw image
+      // let textureImage = new Image();
+      // textureImage.onload = function () {
+      //   ctx.drawImage(textureImage, 0, 0);
+      // }
+      // textureImage.src = `/assets/img/${palette.light.replace('#', '')}.png`;
 
 
-        ctx.drawImage(textureImage, 0, 0);
-        //console.log('the image is drawn');
-      }
-      textureImage.src = `/assets/img/${palette.light.replace('#', '')}.png`;
       // ctx.drawImage(textureImage, 0, 0, textureImage.width, textureImage.height);
       // ctx.drawImage(textureImage,0,0);
       // textureImage.src = "/assets/img/Texture.png";
