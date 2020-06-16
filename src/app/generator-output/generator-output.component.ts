@@ -216,9 +216,9 @@ export class GeneratorOutputComponent implements OnInit {
     });
     nameNumberValue*=1.5;
     nameNumberValue=Math.round(nameNumberValue);
-    console.log(Math.round(nameNumberValue*nameNumberValue));
-    console.log(Palette.length);
-    console.log(Math.round(nameNumberValue*nameNumberValue)%Palette.length);
+    // console.log(Math.round(nameNumberValue*nameNumberValue));
+    // console.log(Palette.length);
+    // console.log(Math.round(nameNumberValue*nameNumberValue)%Palette.length);
     let palette = Palette[Math.round(nameNumberValue*nameNumberValue)%Palette.length];
     let figure = Figure[Math.round(nameNumberValue*nameNumberValue)%Figure.length];
     let mask = Mask[Math.round(nameNumberValue*nameNumberValue)%Mask.length];
