@@ -47,9 +47,9 @@ export default function generatePoster(rc, palette, figure, portraitMask, figure
     //     colour: "#e34262",
     //     dark: "#2c1b2e"
     // };
-    console.log("Boo");
-    console.log(rc);
-    console.log(hexToRGBA(palette.dark, 0.5));
+    // console.log("Boo");
+    // console.log(rc);
+    // console.log(hexToRGBA(palette.dark, 0.5));
     // averageHex(palette.colour,palette.light);
     let bgColour = hexToRGBA(palette.colour, 0.35);
     rc.rectangle(0, 0, 600, 900, { bowing: 0, fillStyle: "solid", fill: palette.light });

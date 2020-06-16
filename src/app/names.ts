@@ -1,9 +1,10 @@
 class Names {
     namesByColours = [
-        { colour: "red", names: ["red", "scarlet", "bloody", "cardinal", "raging"] },
-        { colour: "green", names: ["green", "envious", "verdant", "eco", "vegan"] },
-        { colour: "blue", names: ["blue", "lapis", "sorrowful", "azure", "seasick"] },
-        { colour: "pink", names: ["pink", "flushed", "rose", "blushing", "proud"] },
+        { colour: "red", names: ["red", "scarlet", "bloody", "cardinal", "raging", "ruby", "cerise", "foxy"] },
+        { colour: "green", names: ["green", "envious", "verdant", "natural", "vegan", "sage","acid"] },
+        { colour: "blue", names: ["blue", "lapis", "sorrowful", "azure", "seasick","royal","cobalt","bawdy"] },
+        { colour: "pink", names: ["pink", "flushed", "rose", "blushing", "proud", "fine", "blooming"] },
+        { colour: "midnight", names: ["dark", "night", "midnight", "witching", "shadow", "hidden", "sable"] },
     ];
 
     namesEnglish = [
@@ -36,7 +37,17 @@ class Names {
         "Hunter",
         "Tornado",
         "Tsunami",
-        "Panther"
+        "Panther",
+        "Blazer",
+        "Python",
+        "Rattlesnake",
+        "Torpedo",
+        "Stranger",
+        "Hood",
+        "Shark",
+        "Spider",
+        "King",
+        "Conquistadore"
     ];
 
     generateName(palette,firstWord,nameValue) {
@@ -49,7 +60,7 @@ class Names {
         })[0].names;
        
         // nameString+=`${potentialNames[Math.floor(Math.random() * potentialNames.length)]} ${this.namesEnglish[Math.floor(Math.random() * this.namesEnglish.length)]}`;
-        nameString+=`${potentialNames[nameValue%potentialNames.length]} ${this.namesEnglish[(nameValue%this.namesEnglish.length) - 1]}`;
+        nameString+=`${potentialNames[Math.round(nameValue*3)%potentialNames.length]} ${this.namesEnglish[(nameValue%this.namesEnglish.length) - 1]}`;
     
         // console.log(palette);
         // console.log(potentialNames);

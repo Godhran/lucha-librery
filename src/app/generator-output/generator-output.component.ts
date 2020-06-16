@@ -6,6 +6,7 @@ import Palette from '../palettes';
 import Figure from '../figures';
 import Mask from '../masks';
 import Name from '../names';
+import { TimelineLite } from 'gsap';
 
 @Component({
   selector: 'generator-output',
@@ -13,6 +14,9 @@ import Name from '../names';
   styleUrls: ['./generator-output.component.scss']
 })
 export class GeneratorOutputComponent implements OnInit {
+  
+  loadingMaskAnimation = new TimelineLite({paused:true,repeat:0});
+  posterLoading:boolean = false;
 
   canvas = document.getElementById('poster');
   genFirstName: string = "";
@@ -186,6 +190,7 @@ export class GeneratorOutputComponent implements OnInit {
   }
 
   startGenerator() {
+    this.posterLoading=true;
     let windowWidth = window.innerWidth * 0.75;
     // this.nameToNumber();
     let settingsButton = <HTMLInputElement>document.getElementById('generate-button');
@@ -198,15 +203,10 @@ export class GeneratorOutputComponent implements OnInit {
 
     ctx.clearRect(0, 0, posterElement.width, posterElement.height);
     let loadingDiv = document.getElementById('loading-div');
-    //console.log(loadingDiv);
-    loadingDiv.classList.add('loading-animation');
-    //console.log(this.genFirstName + " " + this.genSurname);
+    // loadingDiv.classList.add('loading-animation');
 
-    //console.log(logo);
-
-    
     let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    let name = this.genFirstName + this.genSurname;
+    let name = this.genFirstName.toLocaleLowerCase() + this.genSurname.toLocaleLowerCase();
     name = name.replace(/[^A-Za-z]/g, "");
     let nameArray = name.split("");
     let nameNumberValue = 0;
@@ -214,10 +214,14 @@ export class GeneratorOutputComponent implements OnInit {
       let letterPosition = alphabet.indexOf(letter) + 1;
       nameNumberValue += letterPosition;
     });
-
-    let palette = Palette[nameNumberValue%Palette.length];
-    let figure = Figure[nameNumberValue%Figure.length];
-    let mask = Mask[nameNumberValue%Mask.length];
+    nameNumberValue*=1.5;
+    nameNumberValue=Math.round(nameNumberValue);
+    console.log(Math.round(nameNumberValue*nameNumberValue));
+    console.log(Palette.length);
+    console.log(Math.round(nameNumberValue*nameNumberValue)%Palette.length);
+    let palette = Palette[Math.round(nameNumberValue*nameNumberValue)%Palette.length];
+    let figure = Figure[Math.round(nameNumberValue*nameNumberValue)%Figure.length];
+    let mask = Mask[Math.round(nameNumberValue*nameNumberValue)%Mask.length];
 
     // let palette = Palette[Math.floor(Math.random() * Palette.length)];
     // let figure = Figure[Math.floor(Math.random() * Figure.length)];
@@ -309,11 +313,12 @@ export class GeneratorOutputComponent implements OnInit {
       //console.log("OUTPUT");
       //console.log(stringB);
       //console.log(stringA + " " + stringB);
-      loadingDiv.style.display = "none";
-      console.log(stringB);
-      if(stringB==="red undefined"){
-        stringB="smart ass";
+      // loadingDiv.style.display = "none";
+      // console.log(stringB);
+      if(stringB.includes('undefined')){
+        stringB="Clever Mark";
       }
+
       generatePoster(rc, palette, figure.Paths, mask.Large, mask.Small.find(fig => fig.Figure === figure.Name).Paths);
 
       ctx.font = `200px ${fontCTX}`;
@@ -363,7 +368,8 @@ export class GeneratorOutputComponent implements OnInit {
       poster.style.width = `${posterDimensions.width}px`;
       settingsButton.disabled = false;
       settingsButton.innerHTML = "Suit up";
-
+      
+    this.posterLoading=false;
       // posterContainer.style.width=`${10}px`;
       // posterContainer.style.height=`1000px`;
       //console.log(posterElement);
@@ -393,7 +399,7 @@ export class GeneratorOutputComponent implements OnInit {
       let letterPosition = alphabet.indexOf(letter) + 1;
       nameNumberValue += letterPosition;
     });
-    //console.log(nameNumberValue);
+    // console.log(nameNumberValue);
     //console.log(Name.namesEnglish.length);
     //console.log(nameNumberValue % Name.namesEnglish.length);
     //console.log(Name.namesEnglish[(nameNumberValue % Name.namesEnglish.length) - 1]);

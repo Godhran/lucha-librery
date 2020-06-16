@@ -25,7 +25,7 @@
 </div>
 
 <div class="register-photo">
-	<div class="form-container" id="loading-container">
+	<div *ngIf="posterLoading" class="form-container" id="loading-container">
 		<div id="loading-div" class="loading-animation">
 			<img src="../../assets/loading.svg" height=200 />
 		</div>

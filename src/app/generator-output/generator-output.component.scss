@@ -22,6 +22,8 @@
 .loading-animation{
     animation-name: loadingMask;
     animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 @keyframes loadingMask {

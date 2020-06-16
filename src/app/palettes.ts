@@ -4,6 +4,7 @@ let Palettes = [
             {light:"#ffb5b5",dark:"#422445",colour:"#4da6ff",name:"blue"},
             {light:"#f7ffae",dark:"#74569b",colour:"#ffb3cb",name:"pink"},
             {light:"#ffa7a5",dark:"#73464c",colour:"#34acba",name:"blue"},
+            {light:"#8b6d9c",dark:"#272744",colour:"#f2d3ab",name:"midnight"},
 ];
 
 export default Palettes;
