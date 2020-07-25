@@ -1,7 +1,5 @@
 import rough from 'roughjs/bin/rough';
-/*
-{ shape: "P", colour: "dark", cx: null, cy: null, rx: null, ry: null, path:``},
-*/
+
 let portraitMask=[
     { shape: "P", fillStyle: "solid", colour: "dark", path: `M256,18C22,18,31,177,31,307c0,147,76,311,225,311s225-164,225-311C481,177,490,18,256,18z` },
     { shape: "P", fillStyle: "solid", colour: "colour", path: `M353,101c-93,0-97,34-97,34s-4-34-97-34c-68,0-82,57-159,2c0,0,11.14,34.55,26.55,73.22 C42.96,217.4,83,277,126,300c27.99,14.97,52.36,18.71,68.13,19.17C169.09,323.3,128,340.25,128,407c0,114,128,114,128,114 s128,0,128-114c0-66.75-41.09-83.7-66.13-87.83c15.77-0.46,40.14-4.2,68.13-19.17c43-23,83.04-82.6,99.45-123.78 C500.86,137.55,512,103,512,103C435,158,421,101,353,101z` },
@@ -41,34 +39,15 @@ let figureFace = [
     { shape: "P", fillStyle: "solid", colour: "dark", path: `M489,318c2.66-1.04,10.01-7.33,9-10c-0.9-2.38-9.56-1.74-12-1c-3.05,0.92-10.65,4.87-10,8 C476.68,318.27,486.17,319.11,489,318z` },
 ]
 
-export default function generatePoster(rc, palette, figure, portraitMask, figureMask) {
-    // let palette = {
-    //     light: "#d1b48c",
-    //     colour: "#e34262",
-    //     dark: "#2c1b2e"
-    // };
-    // console.log("Boo");
-    // console.log(rc);
-    // console.log(hexToRGBA(palette.dark, 0.5));
-    // averageHex(palette.colour,palette.light);
-    let bgColour = hexToRGBA(palette.colour, 0.35);
-    rc.rectangle(0, 0, 600, 900, { bowing: 0, fillStyle: "solid", fill: palette.light });
+export default function generatePoster(posterCanvas, palette, figure, portraitMask, figureMask) {
+    let backgroundColour = hexToRGBA(palette.colour, 0.35);
+    posterCanvas.rectangle(0, 0, 600, 900, { bowing: 0, fillStyle: "solid", fill: palette.light });
     for (let count = 0; count < 19; count ++) {
-        // console.log(count);
-        rc.rectangle(0, 50*count, 600, 26, { bowing: 15, fillStyle: "cross-hatch", fill: bgColour, stroke: bgColour });
+        posterCanvas.rectangle(0, 50*count, 600, 26, { bowing: 15, fillStyle: "cross-hatch", fill: backgroundColour, stroke: backgroundColour });
     }
     
-    // portraitMask.forEach(part => {
-    //     rc.path(part.path, {
-    //         stroke: palette[part.colour],
-    //         strokeWidth: 2,
-    //         fillStyle: part.fillStyle,
-    //         fill: palette[part.colour]
-    //     });
-    // });
-
     portraitMask.forEach(part => {
-        rc.path(part.path, {
+        posterCanvas.path(part.path, {
             stroke: palette[part.colour],
             strokeWidth: 2,
             fillStyle: part.fillStyle,
@@ -77,7 +56,7 @@ export default function generatePoster(rc, palette, figure, portraitMask, figure
     });
 
     figure.forEach(part => {
-        rc.path(part.path, {
+        posterCanvas.path(part.path, {
             stroke: palette[part.colour],
             strokeWidth: 2,
             fillStyle: part.fillStyle,
@@ -86,7 +65,7 @@ export default function generatePoster(rc, palette, figure, portraitMask, figure
     });
 
     figureMask.forEach(part => {
-        rc.path(part.path, {
+        posterCanvas.path(part.path, {
             stroke: palette[part.colour],
             strokeWidth: 2,
             fillStyle: part.fillStyle,
@@ -94,28 +73,10 @@ export default function generatePoster(rc, palette, figure, portraitMask, figure
         });
     });
 
-    // rc.path(`M353,101c-93,0-97,34-97,34s-4-34-97-34c-68,0-82,57-159,2c0,0,11.14,34.55,26.55,73.22 C42.96,217.4,83,277,126,300c27.99,14.97,52.36,18.71,68.13,19.17C169.09,323.3,128,340.25,128,407c0,114,128,114,128,114
-    // s128,0,128-114c0-66.75-41.09-83.7-66.13-87.83c15.77-0.46,40.14-4.2,68.13-19.17c43-23,83.04-82.6,99.45-123.78
-    // C500.86,137.55,512,103,512,103C435,158,421,101,353,101z`, {
-    //     stroke: palette.dark,
-    //     strokeWidth: 2,
-    //     fillStyle: "cross-hatch",
-    //     fill: palette.dark
-    // });
-    return rc;
+    return posterCanvas;
 };
-
-// function averageHex(hexA, hexB) {
-//     let aHexA = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexA);
-//     let aHexB = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexB);
-//     console.log(aHexA);
-//     console.log(aHexB);
-//     return `rgba(${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)},${alpha})`;
-// }
-
 
 function hexToRGBA(hex, alpha) {
     let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return `rgba(${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)},${alpha})`;
 }
-// export default generatePoster;

@@ -1,8 +1,8 @@
 class Names {
     namesByColours = [
         { colour: "red", names: ["red", "scarlet", "bloody", "cardinal", "raging", "ruby", "cherry", "foxy"] },
-        { colour: "green", names: ["green", "envious", "verdant", "natural", "vegan", "sage","acid"] },
-        { colour: "blue", names: ["blue", "lapis", "sorrowful", "azure", "seasick","royal","cobalt","bawdy"] },
+        { colour: "green", names: ["green", "envious", "verdant", "natural", "vegan", "sage", "acid"] },
+        { colour: "blue", names: ["blue", "lapis", "sorrowful", "azure", "seasick", "royal", "cobalt", "bawdy"] },
         { colour: "pink", names: ["pink", "flushed", "rose", "blushing", "proud", "fine", "blooming"] },
         { colour: "midnight", names: ["dark", "night", "midnight", "witching", "shadow", "hidden", "sable"] },
     ];
@@ -50,21 +50,19 @@ class Names {
         "Conquistadore"
     ];
 
-    generateName(palette,firstWord,nameValue) {
+    generateName(palette, firstWord, nameValue) {
         let nameString = '';
-        if(firstWord!=="the"){
-            nameString+="the ";
+
+        if (firstWord !== "the") {
+            nameString += "the ";
         }
+
         let potentialNames = this.namesByColours.filter(entry => {
             return entry.colour === palette;
         })[0].names;
-       
-        // nameString+=`${potentialNames[Math.floor(Math.random() * potentialNames.length)]} ${this.namesEnglish[Math.floor(Math.random() * this.namesEnglish.length)]}`;
-        nameString+=`${potentialNames[Math.round(nameValue*3)%potentialNames.length]} ${this.namesEnglish[(nameValue%this.namesEnglish.length) - 1]}`;
-    
-        // console.log(palette);
-        // console.log(potentialNames);
-        // return `${potentialNames[Math.floor(Math.random() * potentialNames.length)]} ${this.namesEnglish[Math.floor(Math.random() * this.namesEnglish.length)]}`;
+
+        nameString += `${potentialNames[Math.round(nameValue * 3) % potentialNames.length]} ${this.namesEnglish[(nameValue % this.namesEnglish.length) - 1]}`;
+
         return nameString;
     }
 }

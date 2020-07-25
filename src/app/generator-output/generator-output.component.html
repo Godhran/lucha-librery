@@ -1,30 +1,18 @@
-<!-- <div #myDiv></div> -->
-
-<!-- <svg #mySVG version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
-<style type="text/css">
-	.st0{font-family:'PermanentMarker-Regular';}
-	.st1{font-size:250px;}
-	.st2{font-size:228.3224px;}
-</style>
-<text transform="matrix(1 0 0 1 51.5674 373.7026)" class="st0 st1">LUCHA</text>
-<text transform="matrix(1 0 0 1 51.6758 598.1504)" class="st0 st2">Libréry</text>
-</svg> -->
-<!-- <span id="load-font">Text</span>
-<canvas id="poster" width="600" height="900"></canvas> -->
 <div class="settings-container">
 	<form method="post">
-		<h2 class="text-center">Don the <strong>mask</strong></h2>
+		<h2 class="text-center">Don the mask</h2>
 		<div class="form-group"><input type="text" class="form-control" minlength="2" name="forename"
 				placeholder="First Name" required (change)="updateFirstName($event)" /></div>
 		<div class="form-group"><input required (change)="updateSurname($event)" type="text" class="form-control"
 				minlength="2" name="surname" placeholder="Surname" /></div>
-		<div class="form-group"><button (click)="startGenerator()" id="generate-button" class="btn btn-primary btn-block" type="button">Suit
-				Up</button></div>
+		<div class="form-group">
+			<button (click)="startGenerator()" id="generate-button" class="btn btn-primary btn-block" type="button">Suit
+				Up</button>
+			</div>
 	</form>
 </div>
 
-<div class="register-photo">
+<div class="lucha-container">
 	<div *ngIf="posterLoading" class="form-container" id="loading-container">
 		<div id="loading-div" class="loading-animation">
 			<img src="../../assets/loading.svg" height=200 />

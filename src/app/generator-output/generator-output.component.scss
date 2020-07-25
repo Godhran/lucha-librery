@@ -1,12 +1,3 @@
-
-// @font-face {
-//     font-family: 'Wood Stamp';
-//     src: url('../../assets/fonts/WoodStamp/WoodStamp.woff2') format('woff2'),
-//         url('../../assets/fonts/WoodStamp/WoodStamp.woff') format('woff');
-//     font-weight: normal;
-//     font-style: normal;
-// }
-
 #load-font {
     font-family: Wood Stamp;
     font-size:2em;
@@ -58,69 +49,54 @@
     font-size: 3em;
     color: #fff;
     background-color: #de6a37;
-    border-color: #ca3038; /*set the color you want here*/
+    border-color: #ca3038; 
 }
 
 .btn-primary:active {
     color: #1e1832 !important;
     background-color: #cfff70 !important;
-    border-color: #cfff70 !important; /*set the color you want here*/
+    border-color: #cfff70 !important; 
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;
     background-color: #de6a37;
-    border-color: #ca3038; /*set the color you want here*/
+    border-color: #ca3038;
     box-shadow: none !important;
 }
 
-
-// @font-face {
-//     font-family: "Wood Stamp";
-//     src: url("../../assets/fonts/Woodstamp.otf");
-//   }  
-
-.register-photo {
+  .lucha-container {
     padding: 80px 0;
     background-color: #ffe598;
     min-height:45vh;
   }
   
-// canvas {
-// 	display: block;
-//     // height: 100vh;
-//     // width: 100vw;
-// }
-
-  .register-photo .form-container {
+  .lucha-container .form-container {
     display: table;
     max-width: 900px;
-    // width: 90%;
     margin: 0 auto;
-    // box-shadow: 1px 1px 5px #de6a37;
   }
   
-  .register-photo form {
+  .lucha-container form {
     display: table-cell;
     width: 400px;
     background-color: #ffffff;
-    /*padding: 40px 60px;*/
     color: #505e6c;
   }
   
   @media (max-width:991px) {
-    .register-photo form {
+    .lucha-container form {
       padding: 0;
     }
   }
   
-  .register-photo form h2 {
+  .lucha-container form h2 {
     font-size: 24px;
     line-height: 1.5;
     margin-bottom: 30px;
   }
   
-  .register-photo form .form-control {
+  .lucha-container form .form-control {
     background: #f7f9fc;
     border: none;
     border-bottom: 1px solid #dfe7f1;
@@ -132,12 +108,12 @@
     height: 40px;
   }
   
-  .register-photo form .form-check {
+  .lucha-container form .form-check {
     font-size: 13px;
     line-height: 20px;
   }
   
-  .register-photo form .btn-primary {
+  .lucha-container form .btn-primary {
     background: #f4476b;
     border: none;
     border-radius: 4px;
@@ -148,15 +124,15 @@
     outline: none !important;
   }
   
-  .register-photo form .btn-primary:hover, .register-photo form .btn-primary:active {
+  .lucha-container form .btn-primary:hover, .lucha-container form .btn-primary:active {
     background: #eb3b60;
   }
   
-  .register-photo form .btn-primary:active {
+  .lucha-container form .btn-primary:active {
     transform: translateY(1px);
   }
   
-  .register-photo form .already {
+  .lucha-container form .already {
     display: block;
     text-align: center;
     font-size: 12px;
