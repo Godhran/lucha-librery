@@ -1,4 +1,4 @@
-# GOEUVRE
+# Lucha Libréry
 
 <a href="https://lucha-librery.godhran.com/"><img src="https://github.com/Godhran/lucha-librery/blob/master/src/assets/lucha-librery.png" title="Lucha Libréry" alt="Lucha Libréry"></a>
 Lucha Librery is your chance to find out what your luchadore name would be! Aswell as finding out your ring name, a poster will be generated for your promotions.
