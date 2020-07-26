@@ -8,7 +8,7 @@ Lucha Librery is your chance to find out what your luchadore name would be! Aswe
 - [Bootstrap](https://www.npmjs.com/package/bootstrap)
 - [Express](https://www.npmjs.com/package/express)
 - [jQuery](https://www.npmjs.com/package/jquery)
-- [GSAP (GreenSock Animation Platform)](https://www.npmjs.com/package/gsap)
+- [GreenSock Animation Platform](https://www.npmjs.com/package/gsap)
 - [roughjs](https://www.npmjs.com/package/roughjs)
 
 ## Development server
